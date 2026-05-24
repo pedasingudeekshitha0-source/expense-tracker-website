@@ -8,33 +8,38 @@ function addExpense() {
     let expenseAmount =
     parseInt(document.getElementById("expenseAmount").value);
 
-    if (expenseName === "" || isNaN(expenseAmount)) {
+    if(expenseName === "" || isNaN(expenseAmount)){
         alert("Please enter valid details");
         return;
     }
+
+    total += expenseAmount;
+
+    document.getElementById("totalAmount").innerText =
+    "Total: ₹" + total;
 
     let li = document.createElement("li");
 
     li.textContent =
     expenseName + " - ₹" + expenseAmount;
+
     let deleteBtn = document.createElement("button");
 
-deleteBtn.textContent = "Delete";
+    deleteBtn.textContent = "Delete";
+
     deleteBtn.onclick = function() {
 
-    li.remove();
+        total -= expenseAmount;
 
-    total -= expenseAmount;
+        document.getElementById("totalAmount").innerText =
+        "Total: ₹" + total;
 
-    document.getElementById("totalAmount").textContent = total;
-};
+        li.remove();
+    };
+
     li.appendChild(deleteBtn);
 
     document.getElementById("expenseList").appendChild(li);
-
-    total += expenseAmount;
-
-    document.getElementById("totalAmount").textContent = total;
 
     // Clear input fields after adding expense
     document.getElementById("expenseName").value = "";
