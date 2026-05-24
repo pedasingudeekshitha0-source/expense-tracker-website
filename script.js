@@ -17,6 +17,18 @@ function addExpense() {
 
     li.textContent =
     expenseName + " - ₹" + expenseAmount;
+    let deleteBtn = document.createElement("button");
+
+deleteBtn.textContent = "Delete";
+    deleteBtn.onclick = function() {
+
+    li.remove();
+
+    total -= expenseAmount;
+
+    document.getElementById("totalAmount").textContent = total;
+};
+    li.appendChild(deleteBtn);
 
     document.getElementById("expenseList").appendChild(li);
 
