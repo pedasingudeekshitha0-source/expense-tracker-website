@@ -33,3 +33,11 @@ button{
 li{
     margin-top:10px;
 }
+.delete-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:8px;
+    margin-top:8px;
+    cursor:pointer;
+}
