@@ -1,6 +1,6 @@
 let total = 0;
 
-function addExpense(){
+function addExpense() {
 
     let expenseName =
     document.getElementById("expenseName").value;
@@ -8,7 +8,7 @@ function addExpense(){
     let expenseAmount =
     parseInt(document.getElementById("expenseAmount").value);
 
-    if(expenseName === "" || isNaN(expenseAmount)){
+    if (expenseName === "" || isNaN(expenseAmount)) {
         alert("Please enter valid details");
         return;
     }
@@ -22,9 +22,9 @@ function addExpense(){
 
     total += expenseAmount;
 
-    document.getElementById("total").innerText =
-    "Total: ₹" + total;
+    document.getElementById("totalAmount").textContent = total;
 
+    // Clear input fields after adding expense
     document.getElementById("expenseName").value = "";
     document.getElementById("expenseAmount").value = "";
 }
