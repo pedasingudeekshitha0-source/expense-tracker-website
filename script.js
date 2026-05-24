@@ -27,6 +27,7 @@ function addExpense() {
     document.createElement("button");
 
     deleteBtn.innerText = "Delete";
+    deleteBtn.classList.add("delete-btn");
 
     deleteBtn.onclick = function () {
 
