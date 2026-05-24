@@ -8,8 +8,8 @@ function addExpense() {
     let expenseAmount =
     parseInt(document.getElementById("expenseAmount").value);
 
-    if(expenseName === "" || isNaN(expenseAmount)){
-        alert("Please enter valid details");
+    if (expenseName === "" || isNaN(expenseAmount)) {
+        alert("Enter valid details");
         return;
     }
 
@@ -20,14 +20,15 @@ function addExpense() {
 
     let li = document.createElement("li");
 
-    li.textContent =
+    li.innerHTML =
     expenseName + " - ₹" + expenseAmount;
 
-    let deleteBtn = document.createElement("button");
+    let deleteBtn =
+    document.createElement("button");
 
-    deleteBtn.textContent = "Delete";
+    deleteBtn.innerText = "Delete";
 
-    deleteBtn.onclick = function() {
+    deleteBtn.onclick = function () {
 
         total -= expenseAmount;
 
@@ -39,9 +40,10 @@ function addExpense() {
 
     li.appendChild(deleteBtn);
 
-    document.getElementById("expenseList").appendChild(li);
+    document.getElementById("expenseList")
+    .appendChild(li);
 
-    // Clear input fields after adding expense
     document.getElementById("expenseName").value = "";
+
     document.getElementById("expenseAmount").value = "";
 }
