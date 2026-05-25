@@ -37,14 +37,28 @@ function addExpense() {
         "Total: ₹" + total;
 
         li.remove();
+        saveExpenses();
     };
 
     li.appendChild(deleteBtn);
 
     document.getElementById("expenseList")
     .appendChild(li);
+    saveExpenses();
 
     document.getElementById("expenseName").value = "";
 
     document.getElementById("expenseAmount").value = "";
+}
+function saveExpenses() {
+
+    localStorage.setItem(
+        "expenses",
+        document.getElementById("expenseList").innerHTML
+    );
+
+    localStorage.setItem(
+        "total",
+        total
+    );
 }
