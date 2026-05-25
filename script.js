@@ -62,3 +62,25 @@ function saveExpenses() {
         total
     );
 }
+window.onload = function () {
+
+    let savedExpenses =
+    localStorage.getItem("expenses");
+
+    let savedTotal =
+    localStorage.getItem("total");
+
+    if (savedExpenses) {
+
+        document.getElementById("expenseList")
+        .innerHTML = savedExpenses;
+    }
+
+    if (savedTotal) {
+
+        total = parseInt(savedTotal);
+
+        document.getElementById("totalAmount")
+        .innerText = "Total: ₹" + total;
+    }
+};
