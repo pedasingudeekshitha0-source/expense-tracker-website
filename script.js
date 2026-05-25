@@ -9,6 +9,7 @@ function addExpense() {
     parseInt(document.getElementById("expenseAmount").value);
 
     if (expenseName === "" || isNaN(expenseAmount)) {
+
         alert("Enter valid details");
         return;
     }
@@ -27,6 +28,7 @@ function addExpense() {
     document.createElement("button");
 
     deleteBtn.innerText = "Delete";
+
     deleteBtn.classList.add("delete-btn");
 
     deleteBtn.onclick = function () {
@@ -37,6 +39,7 @@ function addExpense() {
         "Total: ₹" + total;
 
         li.remove();
+
         saveExpenses();
     };
 
@@ -44,12 +47,14 @@ function addExpense() {
 
     document.getElementById("expenseList")
     .appendChild(li);
+
     saveExpenses();
 
     document.getElementById("expenseName").value = "";
 
     document.getElementById("expenseAmount").value = "";
 }
+
 function saveExpenses() {
 
     localStorage.setItem(
@@ -62,6 +67,7 @@ function saveExpenses() {
         total
     );
 }
+
 window.onload = function () {
 
     let savedExpenses =
